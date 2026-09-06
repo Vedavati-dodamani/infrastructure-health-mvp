@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Infrastructure Health MVP</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <nav class="topbar">Infrastructure Health MVP</nav>
+  <main class="container">
+    <section class="left">
+      <h2>Live Camera</h2>
+      <video id="video" autoplay playsinline></video>
+      <canvas id="captureCanvas" style="display:none"></canvas>
+      <div class="controls">
+        <button id="startBtn">Start Camera</button>
+        <button id="captureBtn">Capture Photo</button>
+        <input id="fileInput" type="file" accept="image/*,video/*" />
+      </div>
+      <div id="warnings" class="warnings"></div>
+    </section>
+
+    <section class="right">
+      <h2>Analysis</h2>
+      <div id="results">No analysis yet</div>
+      <h3>Map</h3>
+      <div id="map" style="height:300px"></div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="src/map.js"></script>
+  <script src="src/script.js"></script>
+</body>
+</html>

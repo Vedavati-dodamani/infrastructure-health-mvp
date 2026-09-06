@@ -1,0 +1,11 @@
+body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:0}
+.topbar{background:#0b5cff;color:white;padding:12px;font-weight:600}
+.container{display:flex;gap:20px;padding:20px}
+.left, .right{flex:1}
+video{width:100%;max-height:360px;background:#000}
+.controls{margin-top:8px}
+.warnings{margin-top:12px}
+.warn{background:#ffdddd;padding:8px;border-left:4px solid #ff4d4d}
+.info{background:#eef6ff;padding:8px;border-left:4px solid #1f7cff}
+#results{background:#f8f8f8;padding:12px;border-radius:6px}
+.detection{padding:6px;border-bottom:1px solid #ddd}

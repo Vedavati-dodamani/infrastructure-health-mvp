@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "Example Road Segment - Delhi", "type": "road"},
+      "geometry": {"type": "Point", "coordinates": [77.2090, 28.6139]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Example Bridge - Mumbai", "type": "bridge"},
+      "geometry": {"type": "Point", "coordinates": [72.8777, 19.0760]}
+    }
+  ]
+}
