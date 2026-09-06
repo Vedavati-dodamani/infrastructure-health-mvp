@@ -12,7 +12,10 @@
   <main class="container">
     <section class="left">
       <h2>Live Camera</h2>
-      <video id="video" autoplay playsinline></video>
+      <div class="video-wrap">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="overlayCanvas" class="overlay"></canvas>
+      </div>
       <canvas id="captureCanvas" style="display:none"></canvas>
       <div class="controls">
         <button id="startBtn">Start Camera</button>
@@ -25,6 +28,10 @@
     <section class="right">
       <h2>Analysis</h2>
       <div id="results">No analysis yet</div>
+      <div id="imagePreview" class="image-preview" style="display:none; position:relative">
+        <img id="previewImg" src="" alt="preview" />
+        <canvas id="drawCanvas" class="overlay"></canvas>
+      </div>
       <h3>Map</h3>
       <div id="map" style="height:300px"></div>
     </section>

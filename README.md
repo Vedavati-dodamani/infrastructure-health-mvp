@@ -2,37 +2,19 @@
 
 This repository contains an MVP for an AI-powered infrastructure health monitoring platform.
 
-Stack
-- Backend: FastAPI, Python, OpenCV (simulated detection)
-- Frontend: Simple Vite-style static HTML/CSS/JS (no build step for MVP)
-- Database: SQLite (SQLAlchemy)
+Analysis modes
+- heuristic_demo: OpenCV-based heuristics (default, always available) — useful for demo and environments without a trained model.
+- model: Load a trained model placed at backend/app/analysis/models/model.pt (TorchScript) or model.pth (PyTorch). The pipeline will attempt to load the model if PyTorch is installed.
 
-What’s included
-- backend/: FastAPI app with upload, analyze, assets and history endpoints
-- frontend/: Static frontend with camera capture, upload, simulated live warnings, and map (Leaflet fallback)
-- data/: Seeded India asset GeoJSON
+How to add a trained model
+1. Install PyTorch in your backend environment (optional):
+   pip install torch torchvision
+2. Place your model file at backend/app/analysis/models/model.pt or model.pth
+3. Restart the backend. API responses will include "analysis_mode": "model" if inference succeeded.
 
-Quick start (development)
+Fallback behavior
+- If no model is available or loading fails, the API falls back to the heuristic_demo detector. Heuristic results are explicitly served with analysis_mode: "heuristic_demo".
 
-1. Backend
+MVP notes
+- This health score and severity classification are visual heuristics for early detection and not a structural engineering certification.
 
-- Create a virtualenv and install requirements
-
-  python -m venv .venv
-  source .venv/bin/activate
-  pip install -r backend/requirements.txt
-
-- Copy backend/.env.example to backend/.env and edit if needed
-- Run the backend
-
-  uvicorn backend.app.main:app --reload --port 8000
-
-2. Frontend
-
-- Open frontend/index.html in a browser (or serve with a static server)
-
-Notes
-- This MVP uses simulated detection (OpenCV contour heuristics) to produce bounding boxes and severity scores. It’s structured so ML models or external APIs can be dropped in later.
-- No external keys were provided; the map uses Leaflet + OpenStreetMap by default. To use Google Maps, add VITE_GOOGLE_MAPS_API_KEY to frontend/.env and update the map code.
-
-License: MIT
